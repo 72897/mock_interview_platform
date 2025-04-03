@@ -37,6 +37,7 @@ const FormField = ({
             className="input"
             placeholder={placeholder}
             {...field}
+            //hide password in the console log
             type={type}
           />
         </FormControl>
