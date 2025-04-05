@@ -8,7 +8,7 @@ import { getFirestore } from "firebase/firestore";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-
+  apiKey: "AIzaSyDyEzA6F3I2eDQxmPS85vqXRKsfY6RfnDc",
   authDomain: "aitern.firebaseapp.com",
   projectId: "aitern",
   storageBucket: "aitern.firebasestorage.app",
