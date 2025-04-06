@@ -4,10 +4,8 @@ import Image from "next/image";
 import React, { useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
-
 import { useState } from "react";
 import { vapi } from "@/lib/vapi.sdk";
-import { interviewer } from "@/constants";
 
 enum CallStatus {
   INACTIVE = "INACTIVE",
@@ -31,8 +29,6 @@ const Agent = ({ userName, userId, type }: AgentProps) => {
 
   const [messages, setMessages] = useState<SavedMessage[]>([]);
   // Replace with actual messages
-
-  const [lastMessage, setLastMessage] = useState<string>("");
 
   useEffect(() => {
     const onCallStart = () => {
@@ -75,12 +71,21 @@ const Agent = ({ userName, userId, type }: AgentProps) => {
     if (callStatus === CallStatus.FINISHED) router.push("/");
   }, [messages, callStatus, type, userId]);
 
+  const workflowId = process.env.NEXT_PUBLIC_VAPI_WORKFLOW_ID;
+  // console.log("Workflow ID:", workflowId);
+  // console.log("User:", userName, userId);
+
+  if (!workflowId) {
+    alert("Workflow ID is missing. Check your .env.local file.");
+    return;
+  }
+
   const handleCall = async () => {
     setCallStatus(CallStatus.CONNECTING);
-    await vapi.start(process.env.NEXT_PUBLIC_VAPI_WORKFLOW_ID!, {
+    await vapi.start(workflowId, {
       variableValues: {
         username: userName,
-        userId: userId,
+        userid: userId,
       },
     });
   };
@@ -120,6 +125,7 @@ const Agent = ({ userName, userId, type }: AgentProps) => {
               className="rounded-full object-cover size-[120px]"
             />
             <h3>{userName}</h3>
+            <h3>{userId}</h3>
           </div>
         </div>
       </div>
