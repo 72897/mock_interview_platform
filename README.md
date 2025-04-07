@@ -14,8 +14,6 @@ Live Demo: [https://mock-interview-platform-three.vercel.app/](https://mock-inte
 - **AI Interviewer:** Google Gemini + Vapi (Voice API)
 - **Database:** Firebase Firestore
 ---
----
-
 ## ⚙️ Project Setup
 
 **Clone the Repository**
@@ -23,11 +21,25 @@ Live Demo: [https://mock-interview-platform-three.vercel.app/](https://mock-inte
 git clone https://github.com/72897/mock-interview-platform.git
 cd mock-interview-platform
 npm install
+```
+
+**Create `.env.local` File**
+Create a file at the root called `.env.local` and add:
+```env
+# Firebase Admin
+FIREBASE_PROJECT_ID=your_project_id
+FIREBASE_CLIENT_EMAIL=your_client_email
+FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
+
+# Google Gemini API
+GOOGLE_GENERATIVE_AI_API_KEY=your_google_gemini_api_key
+
+# Vapi Config
+NEXT_PUBLIC_VAPI_WEB_TOKEN=your_vapi_web_token
+NEXT_PUBLIC_VAPI_WORKFLOW_ID=your_vapi_workflow_id
+```
+
 ---
----
-
-
-
 
 ## 📁 Project Structure
 
@@ -53,6 +65,8 @@ npm install
 ├── tsconfig.json
 └── package.json
 ```
+
+---
 
 ---
 
