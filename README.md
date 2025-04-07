@@ -1,36 +1,114 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AItern - Mock Interview Platform
 
-## Getting Started
+AItern is a full-stack AI-powered mock interview platform built using **Next.js**, **Firebase**, **Vapi**, and **Google Gemini API**. It helps users practice interviews with voice-enabled AI interviewers and get real-time feedback.
 
-First, run the development server:
+Live Demo: [https://mock-interview-platform-three.vercel.app/](https://mock-interview-platform-three.vercel.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 👨‍💻 Tech Stack
+
+- **Frontend:** Next.js 14 (App Router)
+- **Styling:** Tailwind CSS, shadcn/ui components
+- **Authentication:** Firebase Auth
+- **AI Interviewer:** Google Gemini + Vapi (Voice API)
+- **Database:** Firebase Firestore
+
+---
+
+## 📁 Project Structure
+
+```
+├── app
+│   ├── (auth)         # Authentication routes
+│   ├── (root)         # Main routes
+│   ├── api            # API routes
+│   ├── favicon.ico
+│   ├── globals.css    # Global styles
+│   └── layout.tsx     # Root layout
+│
+├── components         # Reusable UI components
+├── constants          # Static constants
+├── firebase           # Firebase config
+├── lib                # Utility functions
+├── public             # Static assets
+├── types              # TypeScript types
+│
+├── .env.local         # Environment variables
+├── .gitignore
+├── next.config.ts
+├── tsconfig.json
+└── package.json
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🔐 Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create a `.env.local` file at the root and add:
 
-## Learn More
+```env
+FIREBASE_PROJECT_ID=aitern
+FIREBASE_PRIVATE_KEY="<your_private_key>"
+FIREBASE_CLIENT_EMAIL="firebase-adminsdk-xxx@aitern.iam.gserviceaccount.com"
 
-To learn more about Next.js, take a look at the following resources:
+GOOGLE_GENERATIVE_AI_API_KEY="<your_google_gemini_api_key>"
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+NEXT_PUBLIC_VAPI_WEB_TOKEN="<your_vapi_token>"
+NEXT_PUBLIC_VAPI_WORKFLOW_ID="<your_vapi_workflow_id>"
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Make sure you replace `<your_private_key>`, `<your_google_gemini_api_key>`, etc., with your actual keys.
 
-## Deploy on Vercel
+> ⚠️ Never expose your `.env` file publicly.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🔧 Firebase Setup
+
+1. Go to [Firebase Console](https://console.firebase.google.com/)
+2. Create a project and register a web app
+3. Enable **Authentication** (Email/Password)
+4. Enable **Firestore Database**
+5. Generate a service account key and copy credentials to `.env.local`
+
+---
+
+## 🔊 Vapi Setup (Voice API)
+
+1. Visit [vapi.ai](https://vapi.ai/) and create an account
+2. Create a new **Workflow**
+3. Get your **Web Token** and **Workflow ID** from the dashboard
+4. Add them to your `.env.local`
+5. Vapi is used for real-time voice interaction between user and AI interviewer
+
+---
+
+## 🤖 Google Gemini API Setup
+
+1. Go to [Google AI Studio](https://makersuite.google.com/app)
+2. Create a Gemini API Key
+3. Add it to `.env.local` under `GOOGLE_GENERATIVE_AI_API_KEY`
+4. Used to generate real-time interview questions and responses
+
+---
+
+## 🛠️ Running Locally
+
+```bash
+git clone https://github.com/72897/mock-interview-platform
+cd mock-interview-platform
+npm install
+npm run dev
+```
+
+Visit `http://localhost:3000` to see it in action.
+
+---
+
+## 📫 Contact
+
+Made with ❤️ by [Kunal Singh](https://www.linkedin.com/in/kunal-singh-454368289/)
+
+GitHub: [72897](https://github.com/72897/)
+
