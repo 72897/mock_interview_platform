@@ -16,6 +16,16 @@ Live Demo: [https://mock-interview-platform-three.vercel.app/](https://mock-inte
 
 ---
 
+## ⚙️ Project Setup
+
+**Clone the Repository**
+```bash
+git clone https://github.com/72897/mock-interview-platform.git
+cd mock-interview-platform
+npm install
+
+---
+
 ## 📁 Project Structure
 
 ```
