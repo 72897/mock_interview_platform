@@ -13,7 +13,7 @@ Live Demo: [https://mock-interview-platform-three.vercel.app/](https://mock-inte
 - **Authentication:** Firebase Auth
 - **AI Interviewer:** Google Gemini + Vapi (Voice API)
 - **Database:** Firebase Firestore
-
+---
 ---
 
 ## ⚙️ Project Setup
@@ -23,8 +23,11 @@ Live Demo: [https://mock-interview-platform-three.vercel.app/](https://mock-inte
 git clone https://github.com/72897/mock-interview-platform.git
 cd mock-interview-platform
 npm install
-
 ---
+---
+
+
+
 
 ## 📁 Project Structure
 
