@@ -62,11 +62,22 @@ const Layout = async ({ children }: { children: ReactNode }) => {
               </DropdownMenuTrigger>
 
               <DropdownMenuContent className="rounded-full">
-                <DropdownMenuItem>
-                  <Button type="submit" variant="ghost">
-                    Sign Out
-                  </Button>
-                </DropdownMenuItem>
+                <form
+                  action={async () => {
+                    "use server";
+                    await signOut();
+                  }}
+                >
+                  <DropdownMenuItem asChild>
+                    <Button
+                      type="submit"
+                      variant="ghost"
+                      className="w-full justify-start"
+                    >
+                      Sign Out
+                    </Button>
+                  </DropdownMenuItem>
+                </form>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
